@@ -12,7 +12,7 @@ cd "$root"
 
 if ! command -v tectonic >/dev/null; then
         printf "\e[1;35m%s\e[0m\n" "Will invoke Tectonic via Nix..."
-        tectonic() { nix run nixpkgs.tectonic -c tectonic "$@"; }
+        tectonic() { nix shell nixpkgs#tectonic -c tectonic "$@"; }
 fi
 
 printf "\e[1;36m%s\e[0m\n" "Building our resume..."
