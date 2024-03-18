@@ -8,10 +8,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [resume/**]
   pull_request:
     branches: [main]
-    paths: [resume/**]
 
 env:
   tectonic_version: 0.15.0
@@ -46,24 +44,31 @@ jobs:
         run: |
           ./scripts/resume.build.sh
           echo "::set-output name=msg::${{ env.commit_message_resume }}"
-      - name: Push that bitch up
-        id: push
-        if: ${{ success() && steps.build.outputs.msg != '' }}
-        uses: EndBug/add-and-commit@v7.1.2
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
         with:
-          add: website/static
-          push: true
-          message: ${{ steps.build.outputs.msg }}
-          author_name: github-actions
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
-      - name: Leave a comment
-        if: |
-          success() &&
-          steps.push.outputs.committed == 'true' &&
-          steps.push.outputs.pushed == 'true'
-        uses: mshick/add-pr-comment@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: github-actions[bot]
-          message: |
-            ${{ env.commit_message_resume }}
+          name: resume # it'll be zipped :(
+          path: resume.pdf
+
+      # TODO: push final pdf to website repo
+      # - name: Push that bitch up
+      #   id: push
+      #   if: ${{ success() && steps.build.outputs.msg != '' }}
+      #   uses: EndBug/add-and-commit@v7.1.2
+      #   with:
+      #     add: website/static
+      #     push: true
+      #     message: ${{ steps.build.outputs.msg }}
+      #     author_name: github-actions
+      #     author_email: 41898282+github-actions[bot]@users.noreply.github.com
+      # - name: Leave a comment
+      #   if: |
+      #     success() &&
+      #     steps.push.outputs.committed == 'true' &&
+      #     steps.push.outputs.pushed == 'true'
+      #   uses: mshick/add-pr-comment@v1
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     repo-token-user-login: github-actions[bot]
+      #     message: |
+      #       ${{ env.commit_message_resume }}

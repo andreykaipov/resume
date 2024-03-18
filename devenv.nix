@@ -1,20 +1,13 @@
-{ pkgs, ... }:
-
+{ pkgs
+, ...
+}:
 {
   packages = with pkgs; [
-    _1password
-    azure-cli
     entr
-    git
-    jq
-    opentofu
     tectonic
-    terragrunt
   ];
 
-  enterShell = ''
-    git --version
-  '';
+  enterShell = '' '';
 
   pre-commit.hooks.shellcheck.enable = true;
 }

@@ -4,8 +4,7 @@
 # the moderncv submodule. Why a submodule? Because Tectonic doesn't pull the
 # latest moderncv. Even though I probably don't need the latest... why not?
 #
-# The output resume.pdf pops out at the root of this repo and is then moved to
-# website/static.
+# The output resume.pdf pops out at the root of this repo.
 
 set -eu
 root="$(git rev-parse --show-toplevel)"
@@ -17,13 +16,10 @@ if ! command -v tectonic >/dev/null; then
 fi
 
 printf "\e[1;36m%s\e[0m\n" "Building our resume..."
-git submodule update --init resume/moderncv
-cd resume/moderncv
+git submodule update --init moderncv
+cd moderncv
 ln -sf ../resume.tex ../patches -t .
 export SOURCE_DATE_EPOCH=1
 tectonic resume.tex -o "$root"
 git clean -f
 cd -
-
-printf "\e[1;36m%s\e[0m\n" "Moving resume.pdf to website/static"
-mv resume.pdf website/static
