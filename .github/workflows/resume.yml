@@ -13,7 +13,7 @@ on:
 
 env:
   tectonic_version: 0.15.0
-  commit_message_resume: "gh-actions: add resume.pdf"
+  commit_message: "gh-actions: add resume.pdf"
 
 jobs:
   build:
@@ -43,23 +43,25 @@ jobs:
         id: build
         run: |
           ./scripts/build.sh
-          echo "name=${{ env.commit_message_resume }}" >> $GITHUB_OUTPUT
+
+      # TODO: push final pdf to website repo
+      - name: Push that bitch up
+        id: push
+        if: ${{ success() }}
+        uses: EndBug/add-and-commit@v7.1.2
+        with:
+          add: resume.pdf
+          push: true
+          message: ${{ env.commit_message }}
+          author_name: github-actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
           name: resume # it'll be zipped :(
           path: resume.pdf
-        # TODO: push final pdf to website repo
-      - name: Push that bitch up
-        id: push
-        if: ${{ success() && steps.build.outputs.msg != '' }}
-        uses: EndBug/add-and-commit@v7.1.2
-        with:
-          add: resume.pdf
-          push: true
-          message: ${{ steps.build.outputs.msg }}
-          author_name: github-actions
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+
       # - name: Leave a comment
       #   if: |
       #     success() &&
