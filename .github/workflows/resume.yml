@@ -30,7 +30,7 @@ jobs:
           tectonic-version: ${{ env.tectonic_version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Cache Tectonic
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         env: { cache-name: cache-tectonic }
         with:
           path: ~/.cache/Tectonic
@@ -45,7 +45,7 @@ jobs:
           ./scripts/build.sh
           echo "msg=${{ env.commit_message_resume }}" >>$GITHUB_OUTPUT
       - name: Upload PDF
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: resume # it'll be zipped :(
           path: resume.pdf
