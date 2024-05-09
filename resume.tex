@@ -3,10 +3,12 @@
 % Adapated from https://github.com/moderncv/moderncv/blob/master/template.tex
 
 \documentclass[10pt,letterpaper,sans]{moderncv} % choose a4 or letterpaper
-\usepackage[vscale=.89,hscale=.80]{geometry} % page margins
+\usepackage[vscale=.88,hscale=.80]{geometry} % page margins
 
 \input{patches/preamble}
 \moderncvstylecustom[black][awesome]{classic}{banking}
+% options: casual, classic, oldstyle, banking
+% oldstyle similar to banking without the lines
 
 \name{Andrey}{Kaipov}
 \homepage{kaipov.com}
@@ -17,82 +19,115 @@
 \vspace{-2mm}
 
 \section{Experience}
-\cventryoneline{June 2020 -- Present}{Sr Site Reliability Engineer}{Ultimate Kronos Group}{Weston, FL}{}{
-  Cloud Services
+\cventryoneline{May 2022 -- Present}{Software Engineer}{GitHub}{Miami, FL}{Remote}{
   \begin{itemize}
+  % \item
+  %   Refactored GitHub's logging pipeline by using many tiny default Azure
+  %   Event Hub clusters in the queueing layer rather than a handful of beefier
+  %   bespoke clusters, not only simplifying management of the pipeline but
+  %   improving efficiency as well.
   \item
-      Develop and maintain internal Terraform modules abstracting development
-      teams' access to public cloud services, integrating with our private cloud
-      services API, and helping them transition into the public cloud.
+    Managed the infrastructure for macOS runners for both GitHub Actions anud
+    Azure DevOps, coordinating between cloud procurement, system integrators,
+    and obscure Azure teams to make ``MacCloud'' a reality.
   \item
-      Developed a CLI and workflow system to automate the management of volume
-      snapshots and backups for our MySQL and MongoDB services to meet our audit
-      deadlines, which were actually nonexistent at the time.
-  \end{itemize}
-  %
-  Developer Experience
-  \begin{itemize}
+    Automated as much as possible of the bootstrapping, validation,
+    inventory, and telemetry for the management servers, switches, and macOS
+    hosts in our racks, working around Microsoft's endless red tape and
+    Apple's EULA.
   \item
-      Worked closely with traditional Windows sysadmins and application owners
-      to automate the heavily involved and manual configuration of our core
-      products via Ansible playbooks, teaching SRE principles along the way.
-  \end{itemize}
-}
-\cventryoneline{Jan 2020 -- June 2020}{Site Reliability Engineer}{Magic Leap}{Plantation, FL}{}{
-  Launch Coordination
-  \begin{itemize}
+    Created tooling to make it easier managing our legacy ``trashcan Mac''
+    racks, speeding up DRI response times.
   \item
-      Developed Kubernetes operators to manage GCP resources, extending our
-      internal PaaS to help our product teams transition from AWS to GCP.
-  \item
-      Evangelized the technologies of our SRE sister-squads to our product
-      teams, while helping them transition to newer company-wide standards.
-  \item
-      Performed housekeeping across the SRE organization -- upgraded Terraform
-      AWS and GCP modules and projects to use the latest versions, upgraded
-      Concourse pipelines, migrated images from ECR and GCR to our private
-      Docker registry, and added reusable features to our internal tooling for
-      our product teams.
+    Automated the validation of Datadog agent version upgrades across 85k hosts.
   \end{itemize}
 }
-\cventryoneline{Jan 2017 -- Jan 2020}{Site Reliability Engineer}{Ultimate Software}{Weston, FL}{}{
-  Cloud Platform \& Observability
+\cventryoneline{Feb 2022 -- Aug 2023}{Lead Site Reliability Engineer}{Target}{Miami, FL}{Remote}{
   \begin{itemize}
   \item
-      Developed and managed a centralized logging, metrics, and alerting
-      platform for company-wide, ingesting over 5TB/day of logs and metrics into
-      our multi-datacenter Elasticsearch and InfluxDB clusters.
+    Developed a Terraform-like tool for Target's PaaS that allowed users to
+    describe their applications as Kubernetes-inspired YAML manifests,
+    allowing users to bundle their deployment configs right alongside their
+    code, instead of manually managing deployments through monotonous clicks
+    in the UI.
   \item
-      Managed several VM and container-based orchestration platforms for product
-      teams to leverage, including a homegrown PaaS, on-prem Pivotal Cloud
-      Foundry, and on-prem Kubernetes clusters.
-  \item
-      Partnered with product teams to help developers learn about our
-      infrastructure and internal tooling, and to help productionalize their
-      applications and processes.
+    Worked on a handful of proof-of-concepts to help bring tracing to the
+    organization by writing and contributing upstream a variety of custom
+    OpenTelemetry processors, exporters, and extensions to adhere to Target's
+    standards.
   \end{itemize}
 }
-\cventryoneline{Summer 2016}{Software Engineer Intern}{Best Buy}{Richfield, MN}{}{}
+\cventryoneline{June 2020 -- Feb 2022}{Sr Site Reliability Engineer}{Ultimate Kronos Group}{Weston, FL}{Remote}{
+  \begin{itemize}
+  \item
+    Developed and maintained Terraform modules abstracting development teams'
+    access to public cloud services, and created workflows to promote
+    a seamless and transparent user experience transitioning from the private
+    cloud system.
+  \item
+    Developed tooling to automate the management of volume snapshots and
+    backups for our MySQL and MongoDB services
+    % (which were actually nonexistent at the time)
+    to meet some short-notice compliance audit deadlines.
+  \item
+    Worked closely with traditional Windows sysadmins and application owners to
+    automate the heavily involved and manual configuration of our core products via
+    Ansible playbooks, evangelizing SRE principles along the way.
+  \end{itemize}
+}
+\cventryoneline{Jan 2020 -- June 2020}{Site Reliability Engineer}{Magic Leap}{Plantation, FL}{Hybrid}{
+  \begin{itemize}
+  \item
+    Developed Kubernetes operators to manage GCP resources to extend our platform so we could migrate from AWS.
+  % \item
+  %   Evangelized the technologies of our SRE sister-squads to our product
+  %   teams, while helping them transition to newer company-wide standards.
+  % \item
+  %   Performed housekeeping across the SRE organization -- upgraded Terraform
+  %   AWS and GCP modules and projects to use the latest versions, upgraded
+  %   Concourse pipelines, migrated images from ECR and GCR to our private
+  %   Docker registry, and added reusable features to our internal tooling.
+  \end{itemize}
+}
+\cventryoneline{Jan 2017 -- Jan 2020}{Site Reliability Engineer}{Ultimate Software}{Weston, FL}{Hybrid}{
+  \begin{itemize}
+  \item
+    Developed and managed a centralized logging and metrics collection platform
+    for company-wide use, ingesting over 5TB/day of logs and metrics into our
+    milti-datacenter Elasticsearch and InfluxDB clusters.
+  \item
+    Managed several VM and container-based orchestration platforms for product
+    teams to leverage, including a homegrown PaaS, on-prem Pivotal Cloud Foundry,
+    and on-prem Kubernetes clusters.
+  % \item
+  %   Partnered with product teams to help developers learn our infrastructure and
+  %   internal tooling, and how best to productionalize their applications and
+  %   processes.
+  \item
+    Did all the other silly SRE things, e.g. automated toil away, tracked
+    outages, conducted postmortems, troubleshot all kinds of systems, woke up at
+    4am because someone from the NOC called the wrong number by accident.
+  \end{itemize}
+}
+\cventryoneline{Summer 2016}{Software Engineer Intern}{Best Buy}{Richfield, MN}{On-site}{}
 
 \section{Skills}
 \cventryskill{Languages}
-  {Go, Shell, JavaScript, TypeScript, Python, Ruby, Java, \LaTeX.}
+  {Go, Shell, Python, JavaScript, TypeScript, Ruby, Java, \LaTeX. \yeahigotsweskills}
 \cventryskill{Tooling}
   {Docker, Terraform, Packer, Vault, Ansible, Chef, Bosh, Concourse, GitLab.}
-\cventryskill{Services}
-  {MySQL, MongoDB, Redis, RabbitMQ.}
+% \cventryskill{Services}
+  % {MySQL, MongoDB, Redis, RabbitMQ.}
 \cventryskill{Platforms}
-  {Linux, Kubernetes, Cloud Foundry, OpenStack, GCP, AWS.}
+  {Linux, Kubernetes, Cloud Foundry, OpenStack, Azure, GCP, AWS. \yeahigotsreskills}
 \cventryskill{Observability}
   {Elasticsearch, Logstash, Kibana, Fluent Bit, InfluxDB, Telegraf, Grafana, Sensu.}
 
 \section{Projects}
-\cventryproject{kaipov.com}{self}                                    % repo:andreykaipov/self
-  {Representation of self as an overengineered website \& resume.}
 \cventryproject{kaipov.com}{goobs}                                   % repo:andreykaipov/goobs
-  {Go client library to control OBS Studio via WebSockets.}
-\cventryproject{kaipov.com}{env2conf}                                % repo:andreykaipov/env2conf
-  {Convert environment variables into configuration.}
+  {Go client library to control OBS Studio.}
+% \cventryproject{kaipov.com}{env2conf}                                % repo:andreykaipov/env2conf
+  % {Convert environment variables into configuration.}
 \cventryproject{kaipov.com}{funcopgen}                               % repo:andreykaipov/funcopgen
   {Generate functional options for your Go structs.}
 \cventryproject{kaipov.com}{mongodb-pool}                            % repo:andreykaipov/mongodb-pool
@@ -103,7 +138,7 @@
   {Kubernetes controller supporting active/standby applications.}
 
 \section{Education}
-\cventryoneline{Aug 2013 -- Dec 2016}{BS in Mathematics \& Computer Science}{Florida International University}{Miami}{FL}{
+\cventryoneline{Aug 2013 -- Dec 2016}{BS in Mathematics \& Computer Science}{Florida International University}{Miami, FL}{}{
   Honors: Summa Cum Laude, Phi Beta Kappa, FIU Ambassador Scholar, Florida Academic Scholar.
 }
 
