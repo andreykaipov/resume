@@ -1,0 +1,101 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "entr@latest": {
+      "last_modified": "2024-04-19T17:36:04-04:00",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#entr",
+      "source": "devbox-search",
+      "version": "5.5",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ppab9rq4ijv9rsx71qqa7qqrr61hpybq-entr-5.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ppab9rq4ijv9rsx71qqa7qqrr61hpybq-entr-5.5"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4wbrzz4zcdaj1mz95rz6zbc9rl6q9cc9-entr-5.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/4wbrzz4zcdaj1mz95rz6zbc9rl6q9cc9-entr-5.5"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gdyjk0f7bcnnhgq8nnal66di909xyfpq-entr-5.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/gdyjk0f7bcnnhgq8nnal66di909xyfpq-entr-5.5"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jmv6adf7mir06v4xlhiaibgrslwr48c5-entr-5.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jmv6adf7mir06v4xlhiaibgrslwr48c5-entr-5.5"
+        }
+      }
+    },
+    "tectonic@latest": {
+      "last_modified": "2024-04-19T17:36:04-04:00",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#tectonic",
+      "source": "devbox-search",
+      "version": "0.15.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k36x25xp06sfg6lfgyggb9nma75zbjij-tectonic-wrapped-0.15.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k36x25xp06sfg6lfgyggb9nma75zbjij-tectonic-wrapped-0.15.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/lwgpwj0ahjadzfx6mrbm96064h4qmy6h-tectonic-wrapped-0.15.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/lwgpwj0ahjadzfx6mrbm96064h4qmy6h-tectonic-wrapped-0.15.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9cjycf3lw2zbh7s9j1ylwg9jv4wsray3-tectonic-wrapped-0.15.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9cjycf3lw2zbh7s9j1ylwg9jv4wsray3-tectonic-wrapped-0.15.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kz7jh53fyzjdhzwxg4mlq4s7j1j0xm64-tectonic-wrapped-0.15.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/kz7jh53fyzjdhzwxg4mlq4s7j1j0xm64-tectonic-wrapped-0.15.0"
+        }
+      }
+    }
+  }
+}
