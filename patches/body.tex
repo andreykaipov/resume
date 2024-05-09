@@ -1,5 +1,8 @@
 \makeatletter
 
+% customizeable bullet size
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
 % Modify the text size in the cventry so our text is consistent across sections.
 \xpatchcmd{\cventry}
   {\small#7}
@@ -52,11 +55,11 @@
   \newcommand*{\cventryoneline}[7][.25em]{
       {\bfseries#3}%
       \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
-      \ifthenelse{\equal{#5}{}}{}{, #5}%
-      \ifthenelse{\equal{#6}{}}{}{, #6}%
-      .\strut%
+      \ifthenelse{\equal{#5}{}}{}{ $\sbullet$ {\small#5}}%
+      \ifthenelse{\equal{#6}{}}{}{ $\sbullet$ {\small\slshape#6}}%
+      \strut%
       \hfill%
-      {\slshape#2}%
+      {\slshape\small#2}%
     \ifx&#7&%
     \else{\\%
       \begin{minipage}{\maincolumnwidth}%
