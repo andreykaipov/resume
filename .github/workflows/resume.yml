@@ -80,7 +80,7 @@ jobs:
           git checkout -b "$branch"
           git add .
           git commit -m "${{ needs.build.outputs.msg }}"
-          # git push -fu origin auto/resume
+          git push -fu origin auto/resume
           if gh pr edit "${{ env.branch }}" -b "${{ env.body }}" -t "${{ env.title}}"; then
             gh pr reopen "${{ env.branch }}"
           else
