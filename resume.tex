@@ -21,35 +21,33 @@
 \section{Experience}
 \cventryoneline{May 2022 -- Present}{Software Engineer}{GitHub}{Miami, FL}{Remote}{
   \begin{itemize}
+  \item
+    Refactored our logging pipeline, specifically by breaking up the monostate
+    into tinier Terraform workspaces via meticulous state surgeries, replacing
+    bespoke Azure Event Hub clusters with neatly managed ones, and replacing
+    legacy Kafka consumers with Azure Functions instead.
+  \item
+    Automated Datadog agent version upgrades across GitHub's fleet of VMs.
+  \item
+    Managed the migration of our macOS runners across both GitHub Actions and
+    Azure DevOps, by coordinating between cloud procurement, system
+    integrators, and obscure Azure teams.
   % \item
-  %   Refactored GitHub's logging pipeline by using many tiny default Azure
-  %   Event Hub clusters in the queueing layer rather than a handful of beefier
-  %   bespoke clusters, not only simplifying management of the pipeline but
-  %   improving efficiency as well.
-  \item
-    Managed the infrastructure for macOS runners for both GitHub Actions anud
-    Azure DevOps, coordinating between cloud procurement, system integrators,
-    and obscure Azure teams to make ``MacCloud'' a reality.
-  \item
-    Automated as much as possible of the bootstrapping, validation,
-    inventory, and telemetry for the management servers, switches, and macOS
-    hosts in our racks, working around Microsoft's endless red tape and
-    Apple's EULA.
-  \item
-    Created tooling to make it easier managing our legacy ``trashcan Mac''
-    racks, speeding up DRI response times.
-  \item
-    Automated the validation of Datadog agent version upgrades across 85k hosts.
+  %   Automated the bootstrapping, validation, inventory, and telemetry for the
+  %   management servers, switches, and macOS hosts in our racks, working around
+  %   Microsoft's endless red tape and Apple's EULA.
+  % \item
+  %   Created tooling to ease the management of our legacy ``trashcan Mac''
+  %   racks, speeding up DRI response times.
   \end{itemize}
 }
 \cventryoneline{Feb 2022 -- Aug 2023}{Lead Site Reliability Engineer}{Target}{Miami, FL}{Remote}{
   \begin{itemize}
   \item
-    Developed a Terraform-like tool for Target's PaaS that allowed users to
-    describe their applications as Kubernetes-inspired YAML manifests,
-    allowing users to bundle their deployment configs right alongside their
-    code, instead of manually managing deployments through monotonous clicks
-    in the UI.
+    Developed a Terraform-like tool for Target's PaaS allowing users to
+    describe their applications as Kubernetes-inspired YAML manifests so that
+    deployment configs could be bundled alongside code, instead of manually
+    managing deployments through monotonous clicks in the UI.
   \item
     Worked on a handful of proof-of-concepts to help bring tracing to the
     organization by writing and contributing upstream a variety of custom
@@ -78,7 +76,7 @@
 \cventryoneline{Jan 2020 -- June 2020}{Site Reliability Engineer}{Magic Leap}{Plantation, FL}{Hybrid}{
   \begin{itemize}
   \item
-    Developed Kubernetes operators to manage GCP resources to extend our platform so we could migrate from AWS.
+    Developed Kubernetes operators to manage GCP resources to make the migration from AWS easier.
   % \item
   %   Evangelized the technologies of our SRE sister-squads to our product
   %   teams, while helping them transition to newer company-wide standards.
@@ -93,7 +91,7 @@
   \begin{itemize}
   \item
     Developed and managed a centralized logging and metrics collection platform
-    for company-wide use, ingesting over 5TB/day of logs and metrics into our
+    for company-wide use with Chef, ingesting over 5TB/day of logs and metrics into our
     milti-datacenter Elasticsearch and InfluxDB clusters.
   \item
     Managed several VM and container-based orchestration platforms for product
