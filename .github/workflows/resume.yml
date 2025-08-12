@@ -21,7 +21,7 @@ jobs:
     outputs:
       msg: ${{ steps.build.outputs.msg }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
       - name: Download Tectonic
@@ -60,7 +60,7 @@ jobs:
         with:
           app_id: ${{ secrets.CATHY_CLOUD_APP_ID }}
           private_key: ${{ secrets.CATHY_CLOUD_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: andreykaipov/website
           path: website
