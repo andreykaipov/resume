@@ -66,7 +66,7 @@ jobs:
           path: website
           ref: main
           token: ${{ steps.generate-token.outputs.token }}
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: resume
           path: website/static
