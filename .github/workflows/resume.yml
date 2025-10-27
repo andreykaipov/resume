@@ -45,7 +45,7 @@ jobs:
           ./scripts/build.sh
           echo "msg=${{ env.commit_message_resume }}" >>$GITHUB_OUTPUT
       - name: Upload PDF
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: resume # it'll be zipped :(
           path: resume.pdf
